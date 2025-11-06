@@ -37,8 +37,8 @@ public class voo2 : MonoBehaviour
         transform.position += Vector3.down * gravidade * Time.deltaTime;
 
         // 2. OBTENÇÃO DOS INPUTS
-        float horizontalInput = Input.GetAxis("Roll");
-        float verticalInput = Input.GetAxis("Pitch");
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
         // 3. CÁLCULO DAS ROTAÇÕES E SUAVIZAÇÃO
 
