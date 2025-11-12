@@ -7,6 +7,7 @@ public class voo2 : MonoBehaviour
     // === Variáveis de Configuração ===
     [Header("Movimento e Velocidade")]
     [SerializeField] private float flySpeed = 0f;
+    [SerializeField] private float flySpeed2 = 0f;
     [SerializeField] private float quedaDeVelocidade = 1f;
 
     [Header("Controle de Rotação")]
@@ -37,8 +38,8 @@ public class voo2 : MonoBehaviour
         transform.position += Vector3.down * gravidade * Time.deltaTime;
 
         // 2. OBTENÇÃO DOS INPUTS
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Roll");
+        float verticalInput = Input.GetAxis("Pitch");
 
         // 3. CÁLCULO DAS ROTAÇÕES E SUAVIZAÇÃO
 
@@ -69,7 +70,7 @@ public class voo2 : MonoBehaviour
         // 5. ACELERAÇÃO E CONTROLE DA DESACELERAÇÃO
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            flySpeed += 10;
+            flySpeed += flySpeed2;
 
             if (desaceleracaoCoroutine != null)
             {

@@ -460,14 +460,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flySpeed: 0
+  flySpeed2: 2
   quedaDeVelocidade: 1
   yawAmount: 120
-  pitchAmount: 30
-  rollAmount: 45
+  pitchAmount: 90
+  rollAmount: 90
   yawSmoothness: 0.5
   rollSmoothness: 2
   pitchSmoothness: 2
-  gravidade: 1.5
+  gravidade: 0
 --- !u!54 &548915574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -490,8 +491,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1094,7 +1095,7 @@ AimConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_RotationAtRest: {x: 21.332403, y: -60.843407, z: -0.000009165713}
-  m_RotationOffset: {x: -11.703019, y: 11.284735, z: -6.6906114}
+  m_RotationOffset: {x: -11.703018, y: 11.284735, z: -6.690612}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -1488,6 +1489,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c9cf9b5dc25ee24448d7e59fec58381b, type: 2}
+    - target: {fileID: -1853094968961178454, guid: 94b7fc5859c786348a46919e9c7a2628,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: 94b7fc5859c786348a46919e9c7a2628,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: 94b7fc5859c786348a46919e9c7a2628,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: 94b7fc5859c786348a46919e9c7a2628,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 94b7fc5859c786348a46919e9c7a2628,
         type: 3}
       propertyPath: m_Name
