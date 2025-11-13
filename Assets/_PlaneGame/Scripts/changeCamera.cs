@@ -1,23 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class changeCamera : MonoBehaviour
+public class ChangeCamera : MonoBehaviour
 {
-    public GameObject cameraLiga;
-    public GameObject cameraDesliga;
+    [Header("Configuração Local")]
+    [Tooltip("Arraste a Câmera que deve ser ligada quando o Player entrar.")]
+    public GameObject targetCamera; 
 
+    // Variável para guardar a referência do nosso CameraManager
+    private CameraManager cameraManager;
+
+    void Start()
+    {
+        // Encontra o ÚNICO CameraManager na cena e armazena a referência
+        cameraManager = FindObjectOfType<CameraManager>();
+
+        if (cameraManager == null)
+        {
+            Debug.LogError("O CameraManager não foi encontrado na cena! A troca de câmera não vai funcionar.");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the entering collider has the "Player" tag
+        // Checa se o objeto que colidiu é o Player
         if (other.CompareTag("Player"))
         {
-            cameraLiga.SetActive(true);
-            cameraDesliga.SetActive(false);
-            Debug.Log("teste");
+            // Checa se o Gerenciador foi encontrado e se a Câmera alvo está configurada
+            if (cameraManager != null && targetCamera != null)
+            {
+                // Chama a função no CameraManager que encontramos no Start()
+                cameraManager.ActivateNewCamera(targetCamera);
+            }
         }
-
-
     }
 }
