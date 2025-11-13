@@ -30,7 +30,8 @@ public class Aro : MonoBehaviour
             {
                 // Acessa a função de aceleração do script 'voo2' e aplica o boost
                 // Eu criei um método público no voo2 para fazer isso (veja abaixo)
-                playerVooScript.AplicarBoost(boostAmount, oneTimeSpeedIncrease);
+                
+                //playerVooScript.AplicarBoost(boostAmount, oneTimeSpeedIncrease);
 
                 // **OPCIONAL:** Desativar/Destruir o Aro após o uso.
                 // Destroy(gameObject); 
