@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI tagDisplay;
+
     public List<string> tagList = new List<string>()
     {
         "TagA",
@@ -18,9 +21,7 @@ public class Gamemanager : MonoBehaviour
     void Start()
     {
         ChooseRandomTag();
-        
-        //Colocar aqui para alterar o texto
-        Debug.Log("A tag aleatória escolhida é: " + selectedTag);
+        tagDisplay.text = "Alvo: " + selectedTag;
     }
 
     void ChooseRandomTag()
