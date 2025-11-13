@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2597688053356676792
+--- !u!1 &836420930129929283
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4779359526078566511}
-  - component: {fileID: 8590767662112652789}
-  - component: {fileID: 2287288999537342217}
+  - component: {fileID: 4781341413448257220}
+  - component: {fileID: 377497825883566621}
+  - component: {fileID: 5795527538431195632}
+  - component: {fileID: -764948256338253632}
   m_Layer: 0
-  m_Name: "Sa\xEDda"
+  m_Name: Bebedouro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4779359526078566511
+--- !u!4 &4781341413448257220
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2597688053356676792}
+  m_GameObject: {fileID: 836420930129929283}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -9.322, y: 0.21, z: 4.26}
-  m_LocalScale: {x: 80.50195, y: 80.50195, z: 80.50195}
+  m_LocalPosition: {x: 1.1318818, y: 0.25776184, z: 0.67478883}
+  m_LocalScale: {x: 23.231318, y: 23.231318, z: 23.231318}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8590767662112652789
+--- !u!33 &377497825883566621
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2597688053356676792}
-  m_Mesh: {fileID: -2228417370725966487, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
---- !u!23 &2287288999537342217
+  m_GameObject: {fileID: 836420930129929283}
+  m_Mesh: {fileID: -7771613508976059695, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
+--- !u!23 &5795527538431195632
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2597688053356676792}
+  m_GameObject: {fileID: 836420930129929283}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,10 +62,14 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 9101280890363022628, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
   - {fileID: -1637880222114644024, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
-  - {fileID: -6478536213147159724, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
-  - {fileID: -3846018093981099296, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
+  - {fileID: 3016479151454471876, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
+  - {fileID: -8705533452240791338, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
+  - {fileID: 3780671244086486322, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
   - {fileID: 8975480819012031255, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
+  - {fileID: 637949407474519127, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
+  - {fileID: -2813467912831258332, guid: 7a75a39cb51073a4f9f294ae93d8f86f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,3 +91,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-764948256338253632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836420930129929283}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.036287032, y: 0.028141987, z: 0.083444946}
+  m_Center: {x: 0.0044167168, y: -0.00013992979, z: 0.03054917}
