@@ -7,7 +7,7 @@ public class voo2 : MonoBehaviour
     [Header("Movimento e Velocidade")]
     [SerializeField] private float flySpeed = 0f;
     [SerializeField] private float flySpeed2 = 0f;
-    [SerializeField] private float quedaDeVelocidade = 1f;
+    //[SerializeField] private float quedaDeVelocidade = 1f;
 
     [Header("Controle de Rotação")]
     [SerializeField] private float yawAmount = 120f;
@@ -42,7 +42,7 @@ public class voo2 : MonoBehaviour
     private void Update()
     {
         if (isDead) return;
-        
+
         transform.position += flySpeed * Time.deltaTime * transform.forward;
         transform.position += Vector3.down * gravidade * Time.deltaTime;
 
