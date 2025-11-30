@@ -27,20 +27,16 @@ public class voo2 : MonoBehaviour
     [SerializeField] private Gamemanager gameManager; 
     private bool isDead = false;
 
-    // === Variáveis Privadas de Estado ===
     private Coroutine desaceleracaoCoroutine;
     private float yaw;
     private float pitch;
     private float roll;
     private float currentRoll;
-    private float currentPitch; // NOVO: Usado para suavizar o pitch
+    private float currentPitch; 
 
+//referencia de efeitos
     [SerializeField] private Animator anim;
-
-    // private void Start()
-    // {
-    //     gameManager = FindObjectOfType<Gamemanager>();
-    // }
+    [SerializeField] private ParticleSystem particulasVitoria;
 
     private void Update()
     {
@@ -113,7 +109,7 @@ public class voo2 : MonoBehaviour
     {
         isDead = true;
         flySpeed = 0f;
-        
+        particulasVitoria.Play();
         // Coloque aqui o código para mostrar a tela de Game Over, carregar a cena, etc.
         Debug.Log("Fim de Jogo. Aperte R para reiniciar (Exemplo).");
         // Time.timeScale = 0f; // Congelar o tempo
