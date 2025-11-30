@@ -35,6 +35,8 @@ public class voo2 : MonoBehaviour
     private float currentRoll;
     private float currentPitch; // NOVO: Usado para suavizar o pitch
 
+    [SerializeField] private Animator anim;
+
     // private void Start()
     // {
     //     gameManager = FindObjectOfType<Gamemanager>();
@@ -70,41 +72,13 @@ public class voo2 : MonoBehaviour
         {
             flySpeed += flySpeed2;
 
-    //         if (desaceleracaoCoroutine != null)
-    //         {
-    //             StopCoroutine(desaceleracaoCoroutine);
-    //         }
-    //         desaceleracaoCoroutine = StartCoroutine(MorrendoCoroutine());
-    //     }
-    // }
-
-    // private IEnumerator MorrendoCoroutine()
-    // {
-    //     while (flySpeed > 5)
-    //     {
-    //         yield return new WaitForSeconds(1f);
-
-    //         flySpeed -= quedaDeVelocidade;
-
-    //         if (flySpeed < 5)
-    //         {
-    //             flySpeed = 5;
-    //         }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("doFlip");
         }
     }
 
-    // public void AplicarBoost(float boost, float oneTimeIncrease)
-    // {
-    //     flySpeed += boost;
-
-    //     if (desaceleracaoCoroutine != null)
-    //     {
-    //         StopCoroutine(desaceleracaoCoroutine);
-    //     }
-    //     desaceleracaoCoroutine = StartCoroutine(MorrendoCoroutine());
-
-    //     flySpeed += oneTimeIncrease;
-    // }
 
     private void OnTriggerEnter(Collider other)
     {
