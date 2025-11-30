@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class voo2 : MonoBehaviour
@@ -121,6 +122,11 @@ public class voo2 : MonoBehaviour
         {
             Debug.Log("Colidiu com a tag correta: " + requiredTag);
             Destroy(gameObject);
+        }
+        else if (objectTag == "verificadores")
+        {
+            Debug.Log("passou por um verificador");
+            return;
         }
         else
         {

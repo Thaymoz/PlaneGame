@@ -1,29 +1,59 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class CameraManager : MonoBehaviour
 {
     // A câmera atualmente ativa na cena
     private GameObject activeCamera;
 
+    // Função auxiliar para ligar/desligar o Aim Constraint de um GameObject
+    private void SetAimConstraintEnabled(GameObject cameraObject, bool enabled)
+    {
+        if (cameraObject == null) return;
+        
+        // ⭐ Buscamos DIRETAMENTE o componente AimConstraint
+        var constraint = cameraObject.GetComponent<AimConstraint>();
+
+        if (constraint != null)
+        {
+            // Ligamos ou desligamos o componente (que herda de Behaviour)
+            (constraint as Behaviour).enabled = enabled;
+            
+            // É comum também resetar o peso para 0 e depois voltar para 1, 
+            // mas ligar/desligar o componente geralmente é suficiente para forçar o recálculo.
+            // constraint.weight = enabled ? 1f : 0f; 
+        }
+        else
+        {
+            Debug.LogWarning($"AimConstraint não encontrado na câmera {cameraObject.name}. Certifique-se de que ele está na raiz do objeto da câmera.");
+        }
+    }
+
+
     // Função principal que os Triggers irão chamar
     public void ActivateNewCamera(GameObject newCamera)
     {
-        // Se a nova câmera é a mesma que já está ativa, ignora
         if (activeCamera == newCamera)
         {
             return;
         }
 
-        // 1. Desliga a câmera que estava ativa antes
+        // 1. Desliga o Aim Constraint da câmera que estava ativa ANTES de desligar o GameObject
         if (activeCamera != null)
         {
-            activeCamera.SetActive(false);
+            SetAimConstraintEnabled(activeCamera, false);
+            activeCamera.SetActive(false); // Desliga o GameObject
         }
 
         // 2. Liga a nova câmera
         newCamera.SetActive(true);
+
+        // 3. ⭐ Solução: Liga o Aim Constraint da nova câmera APÓS ligar o GameObject
+        // Isso força o Constraint a se recalibrar imediatamente, corrigindo a rotação.
+        SetAimConstraintEnabled(newCamera, true);
+        
         activeCamera = newCamera; // Atualiza a referência
         
-        Debug.Log("Câmera ativada: " + newCamera.name);
+        Debug.Log($"Câmera ativada: {newCamera.name}. Aim Constraint reativado.");
     }
 }
