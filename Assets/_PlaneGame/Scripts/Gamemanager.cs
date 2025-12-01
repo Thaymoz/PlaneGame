@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class Gamemanager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI tagDisplay;
+    [SerializeField] private voo2 scriptPlayer;
+
 
     public List<string> tagList = new List<string>()
     {
@@ -33,5 +35,19 @@ public class Gamemanager : MonoBehaviour
     public string GetSelectedTag()
     {
         return selectedTag;
+    }
+
+    public void startGame()
+    {
+        scriptPlayer.impulsoInicial();
+
+    }
+
+    public void ExitGame()
+    {
+    Application.Quit();
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #endif
     }
 }

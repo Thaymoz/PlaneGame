@@ -67,7 +67,6 @@ public class voo2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             flySpeed += flySpeed2;
-
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -75,6 +74,10 @@ public class voo2 : MonoBehaviour
         }
     }
 
+    public void impulsoInicial()
+    {
+        flySpeed += flySpeed2;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
