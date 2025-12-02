@@ -94,7 +94,9 @@ public class voo2 : MonoBehaviour
         if (objectTag == requiredTag)
         {
             Debug.Log("Colidiu com a tag correta: " + requiredTag);
-            Destroy(gameObject);
+            gameManager.checkList();
+            particulasVitoria.Play();
+            flySpeed = 0f;
         }
         else if (objectTag == "verificadores")
         {
@@ -112,10 +114,28 @@ public class voo2 : MonoBehaviour
     {
         isDead = true;
         flySpeed = 0f;
-        particulasVitoria.Play();
         // Coloque aqui o código para mostrar a tela de Game Over, carregar a cena, etc.
         Debug.Log("Fim de Jogo. Aperte R para reiniciar (Exemplo).");
         // Time.timeScale = 0f; // Congelar o tempo
     }
 
+    public void ResetToStart(Vector3 newPosition) // Recebe a posição que o GameManager mandar
+{
+    // 1. Reseta o estado
+    isDead = false;
+    flySpeed = 0f;
+    
+    // 2. Teletransporta o Player para o novo ponto
+    transform.position = newPosition;
+    
+    // 3. Opcional: Reseta rotação para olhar para frente
+    transform.localRotation = Quaternion.identity; 
+    yaw = 0f;
+    pitch = 0f;
+    roll = 0f;
+    currentPitch = 0f;
+    currentRoll = 0f;
+
+    Debug.Log("Player resetado para a posição inicial.");
+}
 }

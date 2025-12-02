@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 1009977426130255995}
   m_Layer: 0
   m_Name: Cadeira 1
-  m_TagString: Untagged
+  m_TagString: Objeto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8958385611410291727}
   serializedVersion: 2
-  m_LocalRotation: {x: -8.546508e-17, y: 0.81176114, z: 8.546508e-17, w: 0.5839896}
+  m_LocalRotation: {x: 0, y: 0.8117626, z: 0, w: 0.58398765}
   m_LocalPosition: {x: -1.7308226, y: 13.807732, z: -7.653949}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
@@ -456,7 +456,7 @@ Transform:
   - {fileID: 6063362281324968962}
   - {fileID: 8328776336602829376}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 108.537, z: 0}
 --- !u!33 &955714351721041984
 MeshFilter:
   m_ObjectHideFlags: 0
