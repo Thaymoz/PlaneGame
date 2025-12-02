@@ -119,8 +119,15 @@ public class voo2 : MonoBehaviour
         // Time.timeScale = 0f; // Congelar o tempo
     }
 
-    public void ResetToStart(Vector3 newPosition) // Recebe a posição que o GameManager mandar
-{
+    public IEnumerator ResetToStart(Vector3 newPosition) 
+    {
+    // ⭐ NOVO: Atraso opcional para feedback visual (Ex: 0.5 segundos)
+    // Isso é útil se você quiser que as partículas de vitória toquem
+    // ou se a tela pisque antes do teletransporte.
+    yield return new WaitForSeconds(0.5f); 
+
+    // --- LÓGICA DE RESET ---
+    
     // 1. Reseta o estado
     isDead = false;
     flySpeed = 0f;
@@ -128,7 +135,7 @@ public class voo2 : MonoBehaviour
     // 2. Teletransporta o Player para o novo ponto
     transform.position = newPosition;
     
-    // 3. Opcional: Reseta rotação para olhar para frente
+    // 3. Reseta rotação
     transform.localRotation = Quaternion.identity; 
     yaw = 0f;
     pitch = 0f;
@@ -136,6 +143,6 @@ public class voo2 : MonoBehaviour
     currentPitch = 0f;
     currentRoll = 0f;
 
-    Debug.Log("Player resetado para a posição inicial.");
-}
+    Debug.Log("Player resetado para a posição inicial após delay.");
+    }
 }

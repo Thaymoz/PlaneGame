@@ -61,7 +61,7 @@ public class Gamemanager : MonoBehaviour
     }
     public void checkList()
     {
-        scriptPlayer.ResetToStart(startPoint.position);
+        scriptPlayer.StartCoroutine(scriptPlayer.ResetToStart(startPoint.position));
         tagDisplay.text = "Seu próximo alvo é";
         if (selectedTag == "TV")
         {
