@@ -6,22 +6,13 @@ public class CameraManager : MonoBehaviour
     // A câmera atualmente ativa na cena
     private GameObject activeCamera;
 
-    // Função auxiliar para ligar/desligar o Aim Constraint de um GameObject
     private void SetAimConstraintEnabled(GameObject cameraObject, bool enabled)
     {
         if (cameraObject == null) return;
-        
-        // ⭐ Buscamos DIRETAMENTE o componente AimConstraint
         var constraint = cameraObject.GetComponent<AimConstraint>();
-
         if (constraint != null)
         {
-            // Ligamos ou desligamos o componente (que herda de Behaviour)
             (constraint as Behaviour).enabled = enabled;
-            
-            // É comum também resetar o peso para 0 e depois voltar para 1, 
-            // mas ligar/desligar o componente geralmente é suficiente para forçar o recálculo.
-            // constraint.weight = enabled ? 1f : 0f; 
         }
         else
         {

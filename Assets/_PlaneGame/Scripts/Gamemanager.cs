@@ -16,11 +16,6 @@ public class Gamemanager : MonoBehaviour
     private string selectedTag;
     [SerializeField] private GameObject taskListParent;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))

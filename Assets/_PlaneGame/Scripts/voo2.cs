@@ -37,9 +37,7 @@ public class voo2 : MonoBehaviour
     private void Update()
     {
         if (isDead) return;
-
         transform.position += flySpeed * Time.deltaTime * transform.forward;
-
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -48,9 +46,7 @@ public class voo2 : MonoBehaviour
         yaw += smoothedYawChange;
 
         float targetPitch = Mathf.Lerp(0, pitchAmount, Mathf.Abs(verticalInput)) * Mathf.Sign(verticalInput);
-
         currentPitch = Mathf.Lerp(currentPitch, targetPitch, pitchSmoothness * Time.deltaTime);
-
         pitch = currentPitch;
 
         float targetRoll = Mathf.Lerp(0, rollAmount, Mathf.Abs(horizontalInput)) * Mathf.Sign(horizontalInput);
@@ -58,6 +54,7 @@ public class voo2 : MonoBehaviour
         roll = currentRoll;
 
         transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.back * roll);
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -77,11 +74,6 @@ public class voo2 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (isDead) return;
-        if (gameManager == null)
-        {
-             Debug.LogError("GameManager nulo na colisão. Abortando verificação.");
-             return;
-        }
 
         string requiredTag = gameManager.GetSelectedTag();
         string objectTag = other.gameObject.tag;
@@ -105,35 +97,19 @@ public class voo2 : MonoBehaviour
         }
     }
     
-    private void HandleDeath()
-    {
-        isDead = true;
-        flySpeed = 0f;
-        // Coloque aqui o código para mostrar a tela de Game Over, carregar a cena, etc.
-        Debug.Log("Fim de Jogo. Aperte R para reiniciar (Exemplo).");
-        // Time.timeScale = 0f; // Congelar o tempo
-    }
-
     public IEnumerator ResetToStart(Vector3 newPosition) 
     {
         isDead = false;
         flySpeed = 0f;
-    // ⭐ NOVO: Atraso opcional para feedback visual (Ex: 0.5 segundos)
-    // Isso é útil se você quiser que as partículas de vitória toquem
-    // ou se a tela pisque antes do teletransporte.
-    yield return new WaitForSeconds(1.0f); 
+        yield return new WaitForSeconds(1.0f); 
+        transform.position = newPosition;
+        transform.localRotation = Quaternion.identity; 
+        yaw = 0f;
+        pitch = 0f;
+        roll = 0f;
+        currentPitch = 0f;
+        currentRoll = 0f;
 
-    // 2. Teletransporta o Player para o novo ponto
-    transform.position = newPosition;
-    
-    // 3. Reseta rotação
-    transform.localRotation = Quaternion.identity; 
-    yaw = 0f;
-    pitch = 0f;
-    roll = 0f;
-    currentPitch = 0f;
-    currentRoll = 0f;
-
-    Debug.Log("Player resetado para a posição inicial após delay.");
+        Debug.Log("Player resetado para a posição inicial após delay.");
     }
 }
