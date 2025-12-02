@@ -33,6 +33,12 @@ public class voo2 : MonoBehaviour
 //referencia de efeitos
     [SerializeField] private Animator anim;
     [SerializeField] private ParticleSystem particulasVitoria;
+    [SerializeField] private AudioSource soundFX;
+    [SerializeField] private AudioClip successFX;
+    [SerializeField] private AudioClip faillFX;
+    [SerializeField] private AudioSource flySound;
+
+
 
     private void Update()
     {
@@ -64,6 +70,19 @@ public class voo2 : MonoBehaviour
         {
             anim.SetTrigger("doFlip");
         }
+        if (flySound != null)
+        {
+            // Apenas começa a tocar SE o avião está em movimento E o som está parado.
+            if (flySpeed > 0 && !flySound.isPlaying)
+            {
+                flySound.Play();
+            }
+            // Apenas para de tocar SE o avião está parado E o som está tocando.
+            else if (flySpeed <= 0 && flySound.isPlaying)
+            {
+                flySound.Stop();
+            }
+        }
     }
 
     public void impulsoInicial()
@@ -83,6 +102,7 @@ public class voo2 : MonoBehaviour
             Debug.Log("Colidiu com a tag correta: " + requiredTag);
             gameManager.checkList();
             particulasVitoria.Play();
+            soundFX.PlayOneShot(successFX,1.0f);
             flySpeed = 0f;
         }
         else if (objectTag == "verificadores")
@@ -92,8 +112,10 @@ public class voo2 : MonoBehaviour
         }
         else
         {
+            soundFX.PlayOneShot(faillFX,1.0f);
             Debug.Log("Colidiu com a tag INCORRETA ou Obstáculo: " + objectTag + ". Requerida: " + requiredTag);
             StartCoroutine(ResetToStart(startPoint.position));
+            
         }
     }
     
@@ -102,6 +124,7 @@ public class voo2 : MonoBehaviour
         isDead = false;
         flySpeed = 0f;
         yield return new WaitForSeconds(1.0f);
+        gameManager.tagDisplay.text = "Seu próximo alvo é";
         gameManager.menuHud.SetActive(true);
         transform.position = newPosition;
         transform.localRotation = Quaternion.identity; 

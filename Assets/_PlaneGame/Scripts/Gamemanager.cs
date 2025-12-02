@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor.EditorTools;
 public class Gamemanager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI tagDisplay;
+    [SerializeField] public TextMeshProUGUI tagDisplay;
     [SerializeField] private voo2 scriptPlayer;
     [SerializeField] private Transform startPoint;
     [SerializeField] private GameObject taskListParent;
@@ -57,7 +57,6 @@ public class Gamemanager : MonoBehaviour
     public void checkList()
     {
         scriptPlayer.StartCoroutine(scriptPlayer.ResetToStart(startPoint.position));
-        tagDisplay.text = "Seu próximo alvo é";
         Transform childTransform = taskListParent.transform.Find(selectedTag);
         if (childTransform != null)
         {
