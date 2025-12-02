@@ -20,19 +20,15 @@ public class voo2 : MonoBehaviour
     [SerializeField] private float rollSmoothness = 10f;
     [SerializeField] private float pitchSmoothness = 10f; // NOVO: Suavidade do Pitch!
 
-    [Header("Física Manual")]
-    [SerializeField] private float gravidade = 1f;
-
-    [Header("Morte")]
-    [SerializeField] private Gamemanager gameManager; 
-    private bool isDead = false;
-
-    private Coroutine desaceleracaoCoroutine;
     private float yaw;
     private float pitch;
     private float roll;
     private float currentRoll;
     private float currentPitch; 
+
+    [SerializeField] private Gamemanager gameManager; 
+    private bool isDead = false;
+    [SerializeField] private Transform startPoint;
 
 //referencia de efeitos
     [SerializeField] private Animator anim;
@@ -43,7 +39,6 @@ public class voo2 : MonoBehaviour
         if (isDead) return;
 
         transform.position += flySpeed * Time.deltaTime * transform.forward;
-        transform.position += Vector3.down * gravidade * Time.deltaTime;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -106,7 +101,7 @@ public class voo2 : MonoBehaviour
         else
         {
             Debug.Log("Colidiu com a tag INCORRETA ou Obstáculo: " + objectTag + ". Requerida: " + requiredTag);
-            HandleDeath();
+            StartCoroutine(ResetToStart(startPoint.position));
         }
     }
     
@@ -121,17 +116,13 @@ public class voo2 : MonoBehaviour
 
     public IEnumerator ResetToStart(Vector3 newPosition) 
     {
+        isDead = false;
+        flySpeed = 0f;
     // ⭐ NOVO: Atraso opcional para feedback visual (Ex: 0.5 segundos)
     // Isso é útil se você quiser que as partículas de vitória toquem
     // ou se a tela pisque antes do teletransporte.
-    yield return new WaitForSeconds(0.5f); 
+    yield return new WaitForSeconds(1.0f); 
 
-    // --- LÓGICA DE RESET ---
-    
-    // 1. Reseta o estado
-    isDead = false;
-    flySpeed = 0f;
-    
     // 2. Teletransporta o Player para o novo ponto
     transform.position = newPosition;
     

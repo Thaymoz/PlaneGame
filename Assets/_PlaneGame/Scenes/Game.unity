@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 37182980}
   - component: {fileID: 37182979}
   m_Layer: 5
-  m_Name: txt_objeto
+  m_Name: Objeto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2882,6 +2882,7 @@ MonoBehaviour:
   pitchSmoothness: 2
   gravidade: 0
   gameManager: {fileID: 1107201626}
+  startPoint: {fileID: 293711034}
   anim: {fileID: 548915575}
   particulasVitoria: {fileID: 2120673176}
 --- !u!54 &548915574
@@ -7629,7 +7630,7 @@ GameObject:
   - component: {fileID: 1448711960}
   - component: {fileID: 1448711959}
   m_Layer: 5
-  m_Name: txt_televisao
+  m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -63,26 +63,22 @@ public class Gamemanager : MonoBehaviour
     {
         scriptPlayer.StartCoroutine(scriptPlayer.ResetToStart(startPoint.position));
         tagDisplay.text = "Seu próximo alvo é";
-        if (selectedTag == "TV")
+        Transform childTransform = taskListParent.transform.Find(selectedTag);
+        if (childTransform != null)
         {
-            Transform childTransform = taskListParent.transform.GetChild(0);
+        // Tenta obter o componente TextMeshProUGUI neste filho
             TextMeshProUGUI taskText = childTransform.GetComponent<TextMeshProUGUI>();
-            string originalText = taskText.text;
-            if (!originalText.Contains("<s>"))
+
+            if (taskText != null)
             {
-                taskText.text = $"<s>{originalText}</s>";
-                Debug.Log($"Tarefa '{selectedTag}' riscada na UI.");
-            }
-        }
-        if (selectedTag == "Objeto")
-        {
-            Transform childTransform = taskListParent.transform.GetChild(2);
-            TextMeshProUGUI taskText = childTransform.GetComponent<TextMeshProUGUI>();
-            string originalText = taskText.text;
-            if (!originalText.Contains("<s>"))
-            {
-                taskText.text = $"<s>{originalText}</s>";
-                Debug.Log($"Tarefa '{selectedTag}' riscada na UI.");
+            // 3. Aplica a lógica de Riscado (StrikeThrough)
+                string originalText = taskText.text;
+            
+                if (!originalText.Contains("<s>"))
+                {
+                    taskText.text = $"<s>{originalText}</s>"; // Aplica o StrikeThrough
+                    Debug.Log($"Tarefa '{selectedTag}' riscada na UI.");
+                }
             }
         }
     }
