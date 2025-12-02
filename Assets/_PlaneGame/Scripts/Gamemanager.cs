@@ -9,13 +9,12 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tagDisplay;
     [SerializeField] private voo2 scriptPlayer;
     [SerializeField] private Transform startPoint;
-
-    public List<string> tagList = new List<string>()
-    {
-    };
-    private string selectedTag;
     [SerializeField] private GameObject taskListParent;
+    public GameObject menuHud;
 
+    public List<string> tagList = new List<string>() {};
+    private string selectedTag;
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -45,6 +44,7 @@ public class Gamemanager : MonoBehaviour
         scriptPlayer.impulsoInicial();
         ChooseRandomTag();
         tagDisplay.text = "Alvo: " + selectedTag;
+        menuHud.SetActive(false);
     }
 
     public void ExitGame()

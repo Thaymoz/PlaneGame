@@ -101,7 +101,8 @@ public class voo2 : MonoBehaviour
     {
         isDead = false;
         flySpeed = 0f;
-        yield return new WaitForSeconds(1.0f); 
+        yield return new WaitForSeconds(1.0f);
+        gameManager.menuHud.SetActive(true);
         transform.position = newPosition;
         transform.localRotation = Quaternion.identity; 
         yaw = 0f;
