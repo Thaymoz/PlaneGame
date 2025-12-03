@@ -7,6 +7,11 @@ TagManager:
   - Objeto
   - TV
   - verificadores
+  - Computador
+  - Caneca
+  - Planta
+  - Cafetera
+  - Saida
   layers:
   - Default
   - TransparentFX

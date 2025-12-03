@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4173559768558277617}
   m_Layer: 0
   m_Name: Computador
-  m_TagString: Untagged
+  m_TagString: Computador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8736961802845876457}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.081488356, z: -0, w: 0.9966743}
+  m_LocalRotation: {x: 0, y: 0.08148626, z: 0, w: 0.9966745}
   m_LocalPosition: {x: -2.5103734, y: 13.557578, z: -8.715443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 9.348, z: 0}
 --- !u!33 &6300554051542773048
 MeshFilter:
   m_ObjectHideFlags: 0
