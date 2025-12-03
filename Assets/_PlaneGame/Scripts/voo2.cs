@@ -38,8 +38,12 @@ public class voo2 : MonoBehaviour
     [SerializeField] private AudioClip faillFX;
     [SerializeField] private AudioSource flySound;
 
+    private Rigidbody rb;
 
-
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void Update()
     {
         if (isDead) return;
@@ -112,6 +116,7 @@ public class voo2 : MonoBehaviour
         }
         else
         {
+            flySpeed = 0f;
             soundFX.PlayOneShot(faillFX,1.0f);
             Debug.Log("Colidiu com a tag INCORRETA ou Obstáculo: " + objectTag + ". Requerida: " + requiredTag);
             StartCoroutine(ResetToStart(startPoint.position));
@@ -121,10 +126,11 @@ public class voo2 : MonoBehaviour
     
     public IEnumerator ResetToStart(Vector3 newPosition) 
     {
+        rb.velocity = Vector3.zero;
         isDead = false;
         flySpeed = 0f;
         yield return new WaitForSeconds(1.0f);
-        gameManager.tagDisplay.text = "Seu próximo alvo é";
+        gameManager.tagDisplay.text = "";
         gameManager.menuHud.SetActive(true);
         transform.position = newPosition;
         transform.localRotation = Quaternion.identity; 

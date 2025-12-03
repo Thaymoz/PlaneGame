@@ -43,7 +43,7 @@ public class Gamemanager : MonoBehaviour
     {
         scriptPlayer.impulsoInicial();
         ChooseRandomTag();
-        tagDisplay.text = "Alvo: " + selectedTag;
+        tagDisplay.text = selectedTag;
         menuHud.SetActive(false);
     }
 
