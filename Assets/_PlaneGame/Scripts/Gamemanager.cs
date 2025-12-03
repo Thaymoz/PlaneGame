@@ -14,7 +14,17 @@ public class Gamemanager : MonoBehaviour
 
     public List<string> tagList = new List<string>() {};
     private string selectedTag;
+
+    private int tasksCompleted = 0;
+    private int totalTasks = 0;
     
+
+    void Start()
+{
+    
+    totalTasks = tagList.Count;
+    
+}
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -45,6 +55,7 @@ public class Gamemanager : MonoBehaviour
         ChooseRandomTag();
         tagDisplay.text = selectedTag;
         menuHud.SetActive(false);
+        totalTasks = tagList.Count;
     }
 
     public void ExitGame()
